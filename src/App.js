@@ -11,6 +11,7 @@ import UserDetails from './component/UserDetails/UserDetails';
 import SignUp from './component/SignUp/SignUp';
 import Header from './component/Header/Header';
 import PrivateRoute from './Route/PrivateRoute';
+import Course from './component/Course/Course';
 
 function App() {
 
@@ -28,10 +29,14 @@ function App() {
 
                 { path: 'SignUp', element: <SignUp></SignUp> },
                 { path: 'about', element: <About></About> },
-                { path: 'Courses', element: <Courses></Courses> },
+                {
+                    path: 'Courses',
+                    element: <Courses></Courses>
+                },
                 { path: 'Instructors', element: <Instructors></Instructors> },
                 { path: '/Events', element: <Events></Events> },
                 { path: '/Contact', element: <Contact></Contact> },
+                { path: '/Course', element: <Course></Course> },
                 {
                     path: '/Blogs',
                     loader: async () => {
@@ -44,7 +49,8 @@ function App() {
                     loader: async ({ params }) => {
                         return fetch(`https://jsonplaceholder.typicode.com/users/${params.name}`)
                     },
-                    element: <UserDetails></UserDetails>
+                    element: <UserDetails></UserDetails>,
+
                 }
             ]
         },
