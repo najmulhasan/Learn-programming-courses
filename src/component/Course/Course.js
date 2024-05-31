@@ -5,10 +5,10 @@ const Course = ({ course }) => {
     const { courseName, teacherName, email, coursePrice, mobNum, image } = course;
 
     return (
-        <div>
+        <div >
             <h1>Course Details:{courseName}</h1>
-            <container>
-                <Card className='d-flex'>
+            <container >
+                <Card className=' card w-50 d-flex'>
                     <img src={image} alt="" />
                     <span>Course Name:{courseName}</span>
                     <span>Teacher Name:{teacherName}</span>

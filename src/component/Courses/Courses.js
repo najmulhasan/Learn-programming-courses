@@ -10,6 +10,7 @@ const Courses = () => {
 
 
     const [courses, setCourses] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/courses')
             .then(res => res.json())

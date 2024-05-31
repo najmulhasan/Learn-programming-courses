@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css'
-import logo from '../../learning programming.png'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import NavbarToggle from 'react-bootstrap/NavbarToggle'
-import Home from '../Home/Home';
+import React, { useContext } from 'react';
 import { AuthContext } from '../UserContext/UserContext';
+import logo from '../../learning programming.png'
 import { Button } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,42 +17,45 @@ const Header = () => {
             .catch(error => console.error(error));
     }
     return (
-        <nav className='header '>
-            <div className='logo-set '><img src={logo} height={35} width={35} alt="" /></div>
-            <br />
-            <br />
-            <Navbar>
+        <Navbar bg="primary" data-bs-theme="light" collapseOnSelect expand="lg" >
 
-                <div className='menu'>
-                    <Link to='/Home'>Home Page</Link>
-                    <Link to='/About'>About Us</Link>
-                    <Link to='/Courses'>Courses List</Link>
-                    <Link to='/Instructors'>Instructor Info</Link>
-                    <Link to='/Events'>Our Events</Link>
-                    <Link to='/Contact'>Contact Info</Link>
-                    <Link to='/Blogs'>Blogs</Link>
-                    <Link to='/SignUp'>SignUp</Link>
+            <Container>
+                <div className='logo-set '><img src={logo} height={35} width={35} alt="" /></div>
+                <Navbar.Brand href="Home">Language Course Carrier</Navbar.Brand>
 
-                    {user?.displayName
-                        && <span>Welcome, {user.displayName
-                        }</span>} <span>{user?.email}</span>
-                    {
-                        user?.email ?
-                            <Button onClick={handleLogOut} className='logout-btn' variant="info">Log out</Button>
-                            : <Link to='/Home'>
-                                <Button className='logout-btn'>Login</Button>
-                            </Link>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
 
-                    }
+                        <Nav.Link href="Home">Home</Nav.Link>
+                        <Nav.Link href="About">About Us</Nav.Link>
+                        <Nav.Link href="Courses">Courses List</Nav.Link>
+                        <Nav.Link href="Instructors">Instructor Info</Nav.Link>
+                        <Nav.Link href="Events">Our Events</Nav.Link>
+                        <Nav.Link href="Contact">Contact Info</Nav.Link>
+                        <Nav.Link href="Blogs">Blogs</Nav.Link>
+                        <Nav.Link href="SignUp">SignUp</Nav.Link>
 
-                </div>
+                        <Nav.Link href="Courses">Courses</Nav.Link>
+                        <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
+                            <NavDropdown.Item href="Courses">Java script</NavDropdown.Item>
+                            <NavDropdown.Item href="Courses">Programming in C
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="Courses">ReactJs</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                    </Nav>
+                    <Nav>
 
 
-
-
-            </Navbar>
-
-        </nav>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
 
 
 

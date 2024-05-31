@@ -1,8 +1,6 @@
 // import Header from '../Header/Header';
-import login from '../../images/login.png'
 import app from '../../firebase/firebase.init';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css'
 import { useContext, useState } from 'react';
@@ -124,6 +122,7 @@ const Home = () => {
 
                 </form>
                 {success && <p className='text-success'>Successfully Login</p>}
+
                 <p>New to this website    <Link to='/signUp'>   Create a New Account</Link></p>
                 <p>Forget Password?<Button onClick={handleForgetPassword} variant="link">Reset Password</Button></p>
                 <div className=''>
